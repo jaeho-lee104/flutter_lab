@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.teal,
         body: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               CircleAvatar(
@@ -37,34 +38,45 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Container(
+              Divider(
                 color: Colors.white,
-                margin: EdgeInsets.all(20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      Icons.phone,
-                      color: Colors.green,
-                    ),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Text(
-                      '010-8402-0915',
-                      style: TextStyle(
-                        color: Colors.teal.shade900,
-                        fontFamily: 'Goldman',
-                        fontSize: 20.0,
-                      ),
-                    ),
-                  ],
-                ),
+                thickness: 2,
               ),
+              getCard('010-8402-0915', Icons.phone),
+              getCard('woghehdehd@naver.com', Icons.email)
             ],
           ),
         ),
       ),
     );
   }
+}
+
+Card getCard(String text, IconData icon) {
+  return Card(
+      color: Colors.white,
+      margin: EdgeInsets.all(20.0),
+      child: Padding(
+        padding: EdgeInsets.all(20.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Icon(
+              icon,
+              color: Colors.green,
+            ),
+            SizedBox(
+              width: 10.0,
+            ),
+            Text(
+              text,
+              style: TextStyle(
+                color: Colors.teal.shade900,
+                fontFamily: 'Goldman',
+                fontSize: 20.0,
+              ),
+            ),
+          ],
+        ),
+      ));
 }
