@@ -1,66 +1,15 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
-void main() {
-  return runApp(
-    MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.red,
-        appBar: AppBar(
-          title: Text('Dice'),
-          backgroundColor: Colors.red,
-        ),
-        body: DicePage(),
-      ),
-    ),
-  );
-}
+import 'input_page.dart';
 
-class DicePage extends StatefulWidget {
-  @override
-  _DicePageState createState() => _DicePageState();
-}
+void main() => runApp(BMICalculator());
 
-class _DicePageState extends State<DicePage> {
-  int leftIndex = 1;
-  int rightIndex = 1;
-
+class BMICalculator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: FlatButton(
-              onPressed: () {
-                setState(() {
-                  leftIndex = Random().nextInt(5) + 1;
-                  rightIndex = Random().nextInt(5) + 1;
-                  print("left:$leftIndex, right:$rightIndex");
-                });
-              },
-              child: Image(
-                image: AssetImage('images/dice$leftIndex.png'),
-              ),
-            ),
-          ),
-          Expanded(
-            flex: 2,
-            child: FlatButton(
-              onPressed: () {
-                setState(() {
-                  leftIndex = Random().nextInt(5) + 1;
-                  rightIndex = Random().nextInt(5) + 1;
-                });
-              },
-              child: Image(
-                image: AssetImage('images/dice$rightIndex.png'),
-              ),
-            ),
-          ),
-        ],
-      ),
+    return MaterialApp(
+      theme: ThemeData.dark(),
+      home: InputPage(),
     );
   }
 }
